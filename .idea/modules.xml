@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01Lesson6308/01Lesson6308.iml" filepath="$PROJECT_DIR$/01Lesson6308/01Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02Lesson6308/02Lesson6308.iml" filepath="$PROJECT_DIR$/02Lesson6308/02Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03Lesson6308/03Lesson6308.iml" filepath="$PROJECT_DIR$/03Lesson6308/03Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04Lesson6308/04Lesson6308.iml" filepath="$PROJECT_DIR$/04Lesson6308/04Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05Lesson6308/05Lesson6308.iml" filepath="$PROJECT_DIR$/05Lesson6308/05Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06Lesson6308/06Lesson6308.iml" filepath="$PROJECT_DIR$/06Lesson6308/06Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07Lesson6308/07Lesson6308.iml" filepath="$PROJECT_DIR$/07Lesson6308/07Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08Lesson6308/08Lesson6308.iml" filepath="$PROJECT_DIR$/08Lesson6308/08Lesson6308.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ceshi/ceshi.iml" filepath="$PROJECT_DIR$/ceshi/ceshi.iml" />
+    </modules>
+  </component>
+</project>
