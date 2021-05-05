@@ -5,10 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.DirectoryChooserBuilder;
 import javafx.stage.Stage;
@@ -48,11 +45,22 @@ public class SearchFile6308Controller {
         DirectoryChooser directoryChooser=new DirectoryChooser();
         directoryChooser.setTitle("选择文件夹");
         File file = directoryChooser.showDialog(new MyWindow());
-        tfDir.setText(file.getAbsolutePath());
-    }
+        if(file!=null){
+            tfDir.setText(file.getAbsolutePath());
+        }else{
 
+        }
+
+    }
     public static class MyWindow extends Window{
 
+    }
+    void attion(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("NIO2与TableView显示目录内容");
+        alert.setHeaderText("请注意");
+        alert.setContentText("目录错误");
+        alert.show();
     }
 }
 
