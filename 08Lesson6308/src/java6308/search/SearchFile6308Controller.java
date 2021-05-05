@@ -39,15 +39,7 @@ public class SearchFile6308Controller {
     private List<String> list1 = new ArrayList<String>();//存子目录
     private List<String> list2 = new ArrayList<String>();//存文件
     ObservableList<String> items;
-
-    private void initialize() {
-        tfDir.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                    tfDir.setText("");
-            }
-        });
-    }
+    String temp="";
 
     public void clickon(ActionEvent actionEvent) throws IOException {
         initialize();
@@ -64,13 +56,24 @@ public class SearchFile6308Controller {
         }
     }
 
+    private void initialize() {
+        tfDir.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                tfDir.setText(temp);
+            }
+        });
+    }
+
     private void obser(File file) throws IOException {
         items.clear();
         list1.clear();
         list2.clear();
+        temp="";
         Path path = Paths.get(file.getAbsolutePath());
         Stream<Path> list = Files.list(path);
         list.forEach(path1 -> printInfo(path1));
+        temp=file.getAbsolutePath();
         list1.sort(String.CASE_INSENSITIVE_ORDER);
         list2.sort(String.CASE_INSENSITIVE_ORDER);
         items.addAll(list1);
@@ -85,7 +88,6 @@ public class SearchFile6308Controller {
             list2.add(path1.toFile().getName() + "," + path1.toFile().getName().substring(path1.toFile().getName().lastIndexOf(".") + 1) + "类型");
         }
     }
-
     public static class MyWindow extends Window {
 
     }
