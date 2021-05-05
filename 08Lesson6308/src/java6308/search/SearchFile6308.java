@@ -28,19 +28,5 @@ public class SearchFile6308 extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("动态搜索文件");
         primaryStage.show();
-
-        /*Button button = new Button();
-        button.setActionCommand("选择目录");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DirectoryChooser directoryChooser=new DirectoryChooser();
-                directoryChooser.showDialog(new Demo.MyWindow());
-            }
-        });*/
-
     }
-   /* static  class MyWindow extends Window {
-
-    }*/
 }

@@ -19,8 +19,8 @@
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="dqml" />
-            <Button fx:id="button" onAction="#clickon" mnemonicParsing="false" text="选择目录" />
-            <TextField fx:id="tfDir" onAction="#listAll" />
+            <Button mnemonicParsing="false" onAction="#clickon" text="选择目录" />
+            <TextField fx:id="tfDir" />
             <Label fx:id="lblCount" />
          </children>
       </HBox>
