@@ -95,7 +95,8 @@ public class FileFilter6308Controller {
         list2 = new ArrayList<String>();
         list3 = new ArrayList<String>();
     }
-//匿名内部类
+
+    //匿名内部类
     void inner6308() throws IOException {
         if (lujinpanduan().equals("1")) {
             lblMsg.setText("路径错误");
@@ -212,6 +213,7 @@ public class FileFilter6308Controller {
         lvFiles.getItems().addAll(list2);
         lvFiles.getItems().addAll(list3);
     }
+
     //弹窗 路径错误弹窗
     void attion() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -237,16 +239,16 @@ public class FileFilter6308Controller {
     }
 
     private String lujinpanduan() throws IOException {
+        //处理空格
+        if (tfDir.getText().trim().equals("")) {//指向当前路径
+            Path path1 = Paths.get(".");
+            return path1.toAbsolutePath().toString();
+        }
         Path path = Paths.get(tfDir.getText());//获得Path实例化对象
         if (Files.isDirectory(path)) {//路径存在
             return path.toAbsolutePath().toString();
         } else {//路径不存在
-            if (tfDir.getText().trim().equals("")) {//指向当前路径
-                Path path1 = Paths.get(".");
-                return path1.toAbsolutePath().toString();
-            } else {//路径错误
-                return "1";
-            }
+            return "1";
         }
     }
 }

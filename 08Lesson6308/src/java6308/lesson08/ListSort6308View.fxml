@@ -19,7 +19,7 @@
                 </RadioButton>
                 <RadioButton id="demo2" fx:id="rb2" mnemonicParsing="false" text="按学期升序" toggleGroup="$tg" />
                 <RadioButton id="demo3" fx:id="rb3" mnemonicParsing="false" text="按学分升序" toggleGroup="$tg" />
-                <RadioButton id="demo4" fx:id="rb4" mnemonicParsing="false" text="按学期、学分降序" toggleGroup="$tg" />
+                <RadioButton id="demo4" fx:id="rb4" mnemonicParsing="false" text="按学期升序、学分降序" toggleGroup="$tg" />
             </children>
             <padding>
                 <Insets left="20.0" />
