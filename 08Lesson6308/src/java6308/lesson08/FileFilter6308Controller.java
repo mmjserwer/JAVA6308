@@ -122,7 +122,7 @@ public class FileFilter6308Controller {
                 return new File(dir, name).lastModified() > milli;
             }
         });
-        clearobser();
+        clearobser();//显示和清空
     }
 
     //lambda表达式
@@ -148,7 +148,7 @@ public class FileFilter6308Controller {
         list(lujinpanduan(), refer::way1);
         list(lujinpanduan(), refer::way2);
         list(lujinpanduan(), refer::way3);
-        clearobser();
+        clearobser();//显示和清空
     }
 
     //方法引用 接口
@@ -191,24 +191,25 @@ public class FileFilter6308Controller {
     void list(String dir, FilenameFilter filter) {
         File file = new File(dir);
         File[] files = file.listFiles(filter);
+        //遍历file数组 将符合条件的添加到集合内
         for (File f : files) {
-            if (f.getName().endsWith(".java")) {
+            if (f.getName().endsWith(".java")&&f.isFile()) {
                 if (!list1.contains(f.getAbsolutePath())) {
                     list1.add(f.getAbsolutePath());
                 }
             }
-            if (f.length() > 2 * 1024) {
+            if (f.length() > 2 * 1024&&f.isFile()) {
                 if (!list2.contains(f.getAbsolutePath())) {
                     list2.add(f.getAbsolutePath());
                 }
             }
-            if (f.lastModified() > milli) {
+            if (f.lastModified() > milli&&f.isFile()) {
                 if (!list3.contains(f.getAbsolutePath())) {
                     list3.add(f.getAbsolutePath());
                 }
             }
         }
-        lvFiles.getItems().clear();
+        lvFiles.getItems().clear();//清空显示
         lvFiles.getItems().addAll(list1);
         lvFiles.getItems().addAll(list2);
         lvFiles.getItems().addAll(list3);
@@ -241,7 +242,7 @@ public class FileFilter6308Controller {
     private String lujinpanduan() throws IOException {
         //处理空格
         if (tfDir.getText().trim().equals("")) {//指向当前路径
-            Path path1 = Paths.get(".");
+            Path path1 = Paths.get("");
             return path1.toAbsolutePath().toString();
         }
         Path path = Paths.get(tfDir.getText());//获得Path实例化对象
