@@ -5,15 +5,15 @@ public class Score6308 implements Comparable <Score6308>{
     private int chinese;
     private int math;
     private int english;
+    private int sum;
 
-    public Score6308() {
-    }
 
-    public Score6308(String name, int chinese, int math, int english) {
+    public Score6308(String name, int chinese, int math, int english, int sum) {
         this.name = name;
         this.chinese = chinese;
         this.math = math;
         this.english = english;
+        this.sum = sum;
     }
 
     public String getName() {
@@ -47,13 +47,20 @@ public class Score6308 implements Comparable <Score6308>{
     public void setEnglish(int english) {
         this.english = english;
     }
+
+    public Score6308() {
+    }
+
+
     public int getSum(){
         return english+math+chinese;
     }
     @Override
     public int compareTo(Score6308 o) {
-        int sort1=this.getSum()-o.getSum();
-        int sort2=sort1==0? this.math-o.math:sort1;
-        return sort2;
+        return 0;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
     }
 }
