@@ -1,6 +1,8 @@
 package java6308.edit;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -102,6 +104,13 @@ public class EditScores6308Controller {
         } else {
             attion();
         }
+
+        tvScores.editingCellProperty().addListener(new ChangeListener<TablePosition<Score6308, ?>>() {
+            @Override
+            public void changed(ObservableValue<? extends TablePosition<Score6308, ?>> observable, TablePosition<Score6308, ?> oldValue, TablePosition<Score6308, ?> newValue) {
+
+            }
+        });
 
 
     }

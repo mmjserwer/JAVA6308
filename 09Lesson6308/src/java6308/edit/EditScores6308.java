@@ -17,7 +17,7 @@ public class EditScores6308 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL url = getClass().getResource("");
+        URL url = getClass().getResource("EditScores6308View.fxml");
         Parent root =FXMLLoader.load(url);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
