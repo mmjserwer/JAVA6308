@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleSetProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Score6308 {
+public class Score6308 implements Comparable<Score6308>{
     private SimpleStringProperty name;
     private SimpleIntegerProperty chinese;
     private SimpleIntegerProperty math;
@@ -15,9 +15,6 @@ public class Score6308 {
         this.chinese =new SimpleIntegerProperty(chinese);
         this.math = new SimpleIntegerProperty(math);
         this.english = new SimpleIntegerProperty(english);
-    }
-
-    public Score6308() {
     }
 
     public String getName() {
@@ -67,4 +64,13 @@ public class Score6308 {
     public void setEnglish(int english) {
         this.english.set(english);
     }
+
+    public Score6308() {
+    }
+
+    @Override
+    public int compareTo( Score6308 o) {
+        return 0;
+    }
+
 }
