@@ -28,10 +28,10 @@ public class EditScores6308Controller {
     private TableColumn<?, ?> colEnglish;
 
     @FXML
-    private Button add;
+    private Button add;//添加
 
     @FXML
-    private Button delete;
+    private Button delete;//删除
 
     @FXML
     void openFile(ActionEvent event) {
