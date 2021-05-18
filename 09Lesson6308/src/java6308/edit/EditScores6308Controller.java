@@ -60,10 +60,15 @@ public class EditScores6308Controller {
 
     @FXML
     void openFile(ActionEvent event) {
+        items=tvScores.getItems();//
+        items.clear();//
+        list.clear();//
+        tvScores.setEditable(true);
+        colName.setCellFactory(TextFieldTableCell.forTableColumn());
         toInt(colChinese);
         toInt(colMath);
         toInt(colEnglish);
-        items=tvScores.getItems();
+
         //
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("请选择学生文件");
@@ -87,10 +92,8 @@ public class EditScores6308Controller {
                     if(data.contains(",")){//
                         Score6308 myScore6308=new Score6308();
                         String[] split = data.split(",");
-                        myScore6308.setName(split[0]);
-                        myScore6308.setChinese(Integer.parseInt(split[1]));
-                        myScore6308.setMath(Integer.parseInt(split[2]));
-                        myScore6308.setEnglish(Integer.parseInt(split[3]));
+                        myScore6308 =new Score6308(split[0],Integer.parseInt(split[1]),Integer.parseInt(split[2]),Integer.parseInt(split[3]));
+
                         list.add(myScore6308);
                     }
                 }
@@ -149,4 +152,17 @@ public class EditScores6308Controller {
         alert.show();
     }
 
+    @FXML
+    public void delete(ActionEvent actionEvent) {
+        int index = tvScores.getSelectionModel().getSelectedIndex();
+        if(index!=-1){
+            tvScores.getItems().remove(index);
+        }
+    }
+
+    public void add(ActionEvent actionEvent) {
+        Score6308 score6308 = new Score6308("new",0,0,0);
+       tvScores.getItems().add(score6308);
+
+    }
 }
