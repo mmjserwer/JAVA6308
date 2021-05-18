@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaXXXX.lesson10.TextFileXXXXController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java6308.lesson10.TextFile6308Controller">
     <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -42,7 +42,7 @@
       </VBox>
     </top>
     <bottom>
-        <Label text="by 学号：姓名" BorderPane.alignment="CENTER" />
+        <Label text="by 211906308：陈思杰" BorderPane.alignment="CENTER" />
     </bottom>
    <center>
       <TextArea fx:id="taText" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
