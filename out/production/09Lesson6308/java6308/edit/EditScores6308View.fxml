@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java6308.edit.EditScores6308Controller">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="570.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button minWidth="83.0" mnemonicParsing="false" onAction="#openFile" prefHeight="30.0" prefWidth="83.0" text="打开文件" />
+            <Button mnemonicParsing="false" onAction="#saveFile" text="保存文件" />
+                <Label fx:id="lblFilename" prefHeight="20.0" prefWidth="293.0" wrapText="true" HBox.hgrow="NEVER" />
+            </children>
+            <BorderPane.margin>
+                <Insets left="30.0" />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <bottom>
+        <Label text="by 211906308：陈思杰" BorderPane.alignment="CENTER" />
+    </bottom>
+   <left>
+        <TableView fx:id="tvScores" prefHeight="332.0" prefWidth="489.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="155.0" text="姓名" />
+                <TableColumn fx:id="colChinese" prefWidth="88.0" text="语文" />
+                <TableColumn fx:id="colMath" prefWidth="110.0" text="数学" />
+                <TableColumn fx:id="colEnglish" prefWidth="95.0" text="英语" />
+            </columns>
+            <BorderPane.margin>
+                <Insets left="10.0" />
+            </BorderPane.margin>
+        </TableView>
+   </left>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="add" onAction="#add" mnemonicParsing="false" prefHeight="184.0" prefWidth="100.0" text="增加" />
+            <Button fx:id="delete" onAction="#delete" mnemonicParsing="false" prefHeight="204.0" prefWidth="153.0" text="删除" />
+         </children>
+      </VBox>
+   </right>
+
+</BorderPane>
