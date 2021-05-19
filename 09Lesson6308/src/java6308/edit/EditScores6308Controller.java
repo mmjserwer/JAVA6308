@@ -14,10 +14,7 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class EditScores6308Controller {
 
@@ -47,6 +44,8 @@ public class EditScores6308Controller {
 
     ObservableList<Score6308> items ;//
     List<Score6308> list=new ArrayList<>();//
+    String save="";
+    String target="";
 
     @FXML
     //初始化
@@ -60,6 +59,7 @@ public class EditScores6308Controller {
 
     @FXML
     void openFile(ActionEvent event) {
+        save="";
         items=tvScores.getItems();//
         items.clear();//
         list.clear();//
@@ -98,6 +98,7 @@ public class EditScores6308Controller {
                     }
                 }
                 items.addAll(list);
+                save=""+file.getAbsolutePath();
                 lblFilename.setText(list.size()+"条学生成绩数据:"+file.getAbsolutePath());
             }catch (FileNotFoundException e){
                 e.printStackTrace();
@@ -142,8 +143,50 @@ public class EditScores6308Controller {
 
     @FXML
     void saveFile(ActionEvent event) {
-
+        target="";
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("请选择学生文件");
+        fileChooser.setInitialDirectory(new File("."));//初始目录
+        //
+        FileChooser.ExtensionFilter filter1 = new FileChooser.ExtensionFilter("文本文件(*.txt)", "*.txt");
+        FileChooser.ExtensionFilter filter2 = new FileChooser.ExtensionFilter("所有(*.*)", "*.*");
+        //
+        fileChooser.getExtensionFilters().addAll(filter1, filter2);
+        //
+        File file = fileChooser.showOpenDialog(new Stage());
+        //
+        if (file == null) {
+            attion();
+        }
+        if (file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line = "";
+                String data;//
+                while ((data = br.readLine()) != null) {
+                    line = line + data + "\r\n";
+                }
+                //
+                target=""+file.getAbsoluteFile();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            attion();
+        }
+        File file2 = new File(save);
+        File file1 = new File(target);
+        try (Scanner sc = new Scanner(file2);PrintWriter printWriter = new PrintWriter(new FileOutputStream(file1));) {
+            while(sc.hasNextLine()){
+                printWriter.println(sc.nextLine());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
+
     void attion() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("读文本文件");

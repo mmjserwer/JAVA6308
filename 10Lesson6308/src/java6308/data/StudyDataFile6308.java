@@ -33,8 +33,27 @@ public class StudyDataFile6308 {
   }
 
   public static void main(String[] args) throws Exception {
+    //运行1
+    /*
+    【问题1】dataXXXX.dat的绝对路径是什么？dataXXXX.dat是文本文件吗？
+    【问题2】请说明writeIntWithByteXXXX()方法是怎样把整型数据保存到文件中的？
+    【问题3】请说明readIntWithByteXXXX()方法是怎样从文件中读取整型数据的？
+    */
+    writeIntWithByte6308();
+    readIntWithByte6308();
 
+    //运行2
+    /*
+    【问题4】writeXXXX()与writeIntWithByteXXXX()具有相同的功能，请比较代码的不同点。
+    【问题5】总结读写文件时，分别需要对文件做哪些判断？
+    */
+    writeData6308();
+    readData6308();
 
+    //运行3
+    /*
+    *【问题6】使用DataOutputStream、DataInputStream有什么好处？
+    * */
   }
 
 
