@@ -36,7 +36,10 @@ public class StudyDataFile6308 {
     //运行1
     /*
     【问题1】dataXXXX.dat的绝对路径是什么？dataXXXX.dat是文本文件吗？
+
+    当前项目下的目录  不是文本文件
     【问题2】请说明writeIntWithByteXXXX()方法是怎样把整型数据保存到文件中的？
+
     【问题3】请说明readIntWithByteXXXX()方法是怎样从文件中读取整型数据的？
     */
     writeIntWithByte6308();
