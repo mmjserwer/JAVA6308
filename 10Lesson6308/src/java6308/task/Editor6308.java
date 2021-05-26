@@ -18,10 +18,19 @@ public class Editor6308 extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         URL url = getClass().getResource("Editor6308View.fxml");
-        Parent root = FXMLLoader.load(url);
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root=null;
+        try{
+            root=loader.load();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("文本编辑器");
         primaryStage.show();
+
+        Editor6308Controller controller = loader.getController();
+        controller.setCloseRequest(primaryStage);
     }
 }

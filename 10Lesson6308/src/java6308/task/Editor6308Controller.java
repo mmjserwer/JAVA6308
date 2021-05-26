@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Editor6308Controller {
 
@@ -15,6 +18,8 @@ public class Editor6308Controller {
 
     @FXML
     void openFile(ActionEvent event) {
+
+
 
     }
 
@@ -28,4 +33,11 @@ public class Editor6308Controller {
 
     }
 
+    public void setCloseRequest(Stage primaryStage) {
+        primaryStage.setOnCloseRequest(this::inclose);
+    }
+
+    private void inclose(WindowEvent windowEvent) {
+
+    }
 }
