@@ -50,12 +50,11 @@ public class SimpleDML6308 {
 
     private static void create6308() throws SQLException, ClassNotFoundException {
         String sql = "create table xslist(\n" +
-                "id integer primary key autoincrement not null,\n" +
-                "sno text not null,\n" +
-                "sname text,\n" +
-                "lx1 integer,\n" +
-                "lx2 integer\n" +
-                ");";
+                "    id integer primary key autoincrement not null,\n" +
+                " sno text not null,\n" +
+                " sname text,\n" +
+                " lx1 integer,\n" +
+                " lx2 integer);";
         execute6308(sql);
     }
 }
