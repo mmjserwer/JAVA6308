@@ -6,9 +6,8 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="db6308" uuid="c8aa906e-a536-4d83-8bfe-cfe4f84c45eb">
+    <data-source source="LOCAL" name="db6308.db3" uuid="ecbb217b-b4d9-455e-867c-513c2cfbb1b3">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
