@@ -14,9 +14,9 @@ public class SimpleDML6308 {
 
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//        create6308();
+        create6308();
 
-       /* for(int i=0;i<10;i++){
+        /*for(int i=0;i<10;i++){
             insert6308();
         }*/
 

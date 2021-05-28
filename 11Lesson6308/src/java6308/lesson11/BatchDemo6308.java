@@ -39,7 +39,7 @@ public class BatchDemo6308 {
         Files.lines(Paths.get("data/StudentList.txt")).forEach(line -> {
             String[] datas = line.split(" ");
             try {
-                preSt.setString(1, datas[0]);
+                preSt.setString(1, datas[0].trim());
                 preSt.setString(2, datas[1]);
                 //添加到批处理中（批量传参）
                 preSt.addBatch();
@@ -57,7 +57,6 @@ public class BatchDemo6308 {
         // （4）关闭资源
         preSt.close();
         conn.close();
-
         //使用Stream统计执行结果（下一次课介绍）
         int success = IntStream.of(results).filter(n -> n > 0).sum();
         long fail = IntStream.of(results).filter(n -> n < 0).count();

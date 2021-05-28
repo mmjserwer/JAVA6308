@@ -16,6 +16,10 @@ public class Select6308 {
         String name1 = sc.nextLine();
         System.out.print("请输入id范围：");
         int id1 = sc.nextInt();
+        find6308(name1, id1);
+    }
+
+    private static void find6308(String name1, int id1) {
         PreparedStatement presta = null;
         Connection con = null;
         try {
@@ -49,7 +53,5 @@ public class Select6308 {
                 }
             }
         }
-
-
     }
 }

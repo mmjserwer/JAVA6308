@@ -7,11 +7,11 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="db6308.db3" uuid="78317ee6-20c0-4d72-a794-3eca931cd097">
+    <data-source source="LOCAL" name="db6308.db3" uuid="b905b830-c4d8-444c-a72c-1eb8e93ce2de">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:E:\JAVA6308\db\db6308.db3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/db6308.db3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
