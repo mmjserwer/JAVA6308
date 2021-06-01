@@ -63,6 +63,15 @@ public class DBUtil6308 {
             }
         }
     }
+    public static void close(ResultSet rs) {
+        if (Objects.requireNonNull(rs) != null) {
+            try {
+                rs.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+    }
 
 
 }
