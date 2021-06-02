@@ -15,7 +15,7 @@ public class StudyDataFile6308 {
   /**
    * 字节数组转换为int
    * 
-   * @param b
+   * @param
    * @return
    */
   public static int byteArrayToInt6308(byte[] b) {
