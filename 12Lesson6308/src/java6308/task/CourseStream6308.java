@@ -3,22 +3,23 @@ package java6308.task;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class CourseStream6308 {
 
     public static void main(String[] args) {
         Map<String, List<Course6308>> result = getCourses().stream().collect(Collectors.groupingBy(Course6308::getTerm));
-        result.keySet().stream().forEach(x -> {
-          System.out.println("====学期:"+x+"====");
-          System.out.println("共"+result.get(x).size()+"门课程,平均分："+String.format("%.2f",result.get(x).stream().mapToInt(Course6308::getScore).average().getAsDouble()));
-          result.get(x).stream().sorted(Comparator.comparing(Course6308::getScore)).forEach(s->{
-            System.out.println(s.getNo()+" "+String.format("%-12s",s.getName())+s.getTerm()+","+s.getCredit()+","+s.getScore());
-          });
+        result.keySet().stream().sorted().forEach(x -> {
+            System.out.println("====学期:" + x + "====");
+            System.out.println("共" + result.get(x).size() + "门课程,平均分：" + String.format("%.2f", result.get(x).stream().mapToInt(Course6308::getScore).average().getAsDouble()));
+            result.get(x).stream().sorted(Comparator.comparing(Course6308::getScore)).forEach(s -> {
+                System.out.println(s.getNo() + " " + String.format("%-12s", s.getName()) + s.getTerm() + "," + s.getCredit() + "," + s.getScore());
+            });
         });
 
-
     }
+
     private static List<Course6308> getCourses() {
         List<Course6308> courses = new ArrayList<Course6308>();
         courses.add(new Course6308("A001", "C程序设计基础", "1上", 4, 80));
