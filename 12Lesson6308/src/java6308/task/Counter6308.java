@@ -9,11 +9,13 @@ public class Counter6308 {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         String[] split = s.split("");
+        Map<String,Integer> map=new TreeMap<>();
         /*Arrays.asList(split).stream().collect(Collectors.groupingBy(String::new, TreeMap::new, Collectors.counting())).forEach(
-                (k, v) -> System.out.println(k + "==" + v)
+                (k, v) -> {
+                    System.out.println(k+"=="+v);
+                }
         );*/
-        Map<String, List<String>> collect = Arrays.asList(split).stream().collect(Collectors.groupingBy(String::new));
-        Set<Map.Entry<String, List<String>>> entries = collect.entrySet();
 
+        Map<String, List<String>> cc = Arrays.asList(split).stream().collect(Collectors.groupingBy(String::new));
     }
 }
