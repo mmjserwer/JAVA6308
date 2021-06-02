@@ -14,6 +14,6 @@ public class Counter6308 {
         );*/
         Map<String, List<String>> collect = Arrays.asList(split).stream().collect(Collectors.groupingBy(String::new));
         Set<Map.Entry<String, List<String>>> entries = collect.entrySet();
-        entries.stream().sorted()
+
     }
 }

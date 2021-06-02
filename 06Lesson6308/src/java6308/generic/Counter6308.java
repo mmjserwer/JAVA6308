@@ -33,7 +33,7 @@ public class Counter6308 {
         }
         /*StringBuilder tt = new StringBuilder();//定义字符串缓冲区变量
         Set<Character> set = map.keySet();
-        for (Character key : set) {
+        for (Character key : set)
             Integer value = map.get(key);
             if (key.equals(' ')) {
                 tt.append("空格").append(":").append(value).append("个 ");
