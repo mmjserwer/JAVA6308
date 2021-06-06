@@ -2,6 +2,7 @@ package java6308.gui;
 
 import java6308.dao.Student6308;
 import java6308.dao.Student6308Dao;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,6 +60,7 @@ public class EditStudent6308Controller {
 
     @FXML
     void add(ActionEvent event) {
+        ObservableList<Student6308> items = tvStudents.getItems();
         if (dialog == null) {
             createDialog6308();
         }
@@ -66,13 +68,14 @@ public class EditStudent6308Controller {
         dialog.showAndWait();
         Student6308 stu = controller.getStudent();
         if (stu != null) {
-            int id = dao.add6308(stu);
-            tvStudents.getItems().add(stu);
-            tvStudents.refresh();
-            tvStudents.requestFocus();
-            tvStudents.getSelectionModel().select(stu);
-            tvStudents.scrollTo(stu);
-
+            if(stu.getSname()!=null&&stu.getSno()!=null){
+                new Student6308Dao().add6308(stu);
+                items.add(stu);
+                tvStudents.refresh();
+                tvStudents.requestFocus();
+                tvStudents.getSelectionModel().select(stu);
+                tvStudents.scrollTo(stu);
+            }
         }
 
     }
@@ -89,7 +92,7 @@ public class EditStudent6308Controller {
         controller.initChange6308(oldStudent);
         dialog.showAndWait();
         Student6308 newStudent = controller.getStudent();
-        if (newStudent == null || newStudent.equalsIgnoreId(oldStudent)) {
+        if (newStudent == null ) {
 
         } else {
             dao.update6308(oldStudent.getId(), newStudent);

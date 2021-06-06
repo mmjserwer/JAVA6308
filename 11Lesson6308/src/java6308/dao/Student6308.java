@@ -66,7 +66,4 @@ public class Student6308 {
                 '}';
     }
 
-    public boolean equalsIgnoreId(Student6308 oldStudent) {
-        return true;
-    }
 }
