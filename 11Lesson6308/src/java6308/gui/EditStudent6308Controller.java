@@ -72,6 +72,7 @@ public class EditStudent6308Controller {
             tvStudents.requestFocus();
             tvStudents.getSelectionModel().select(stu);
             tvStudents.scrollTo(stu);
+
         }
 
     }
@@ -98,6 +99,7 @@ public class EditStudent6308Controller {
             tvStudents.refresh();
             tvStudents.getSelectionModel().select(newStudent);
             tvStudents.requestFocus();
+
         }
     }
 
