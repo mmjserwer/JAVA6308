@@ -132,7 +132,6 @@ public class Student6308Dao {
     public static int add6308(Student6308 student6308) {
         Connection con = null;
         PreparedStatement pstmt = null;
-        ResultSet rs=null;
         String sql = "insert into xslist(sno,sname,lx1,lx2) values(?,?,?,?)";
         int i=-1;
         try {
@@ -143,7 +142,7 @@ public class Student6308Dao {
             pstmt.setInt(3,student6308.getLx1());
             pstmt.setInt(4,student6308.getLx2());
             if(pstmt.executeUpdate()==1){
-                rs = pstmt.executeQuery();
+                ResultSet rs = pstmt.executeQuery();//
                 if(rs.next()){
                     i=rs.getInt(1);
                     student6308.setId(i);
@@ -152,7 +151,6 @@ public class Student6308Dao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            close(rs);
             close(pstmt);
             close(con);
         }
