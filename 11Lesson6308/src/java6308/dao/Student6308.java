@@ -65,4 +65,8 @@ public class Student6308 {
                 ", sno='" + sno + '\'' +
                 '}';
     }
+
+    public boolean equalsIgnoreId(Student6308 oldStudent) {
+        return true;
+    }
 }

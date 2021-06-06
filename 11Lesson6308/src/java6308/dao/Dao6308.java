@@ -17,24 +17,18 @@ public class Dao6308 {
 
     private static void delete(int id1) {
         Connection con = null;
-        try {
-            con = getConnnection();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
         String sql = "delete from xslist where id = ?";
         PreparedStatement pstmt = null;
         try {
+            con = getConnnection();
             pstmt = con.prepareStatement(sql);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        try {
             pstmt.setInt(1, id1);
+            pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            close(pstmt);
+            close(con);
         }
-        close(pstmt);
-        close(con);
     }
 }

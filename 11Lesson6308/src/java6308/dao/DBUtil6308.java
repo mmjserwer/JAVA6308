@@ -11,11 +11,12 @@ public class DBUtil6308 {
     private static final String URL;
     private static final String USER;
     private static final String PW;
-    private static Properties prop;
+    private static final Properties prop;
 
     static {
+        prop = new Properties();
         try {
-            prop.load(new FileInputStream("congig/database6308.properties"));
+            prop.load(new FileInputStream("config/database6308.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,49 +29,56 @@ public class DBUtil6308 {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
-    public static Connection getConnnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PW);
+    public static Connection getConnnection() {
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection(URL, USER, PW);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return con;
     }
 
     public static void close(Connection conn) {
-        if (Objects.requireNonNull(conn) != null) {
-            try {
-                conn.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        Objects.requireNonNull(conn);
+        try {
+            conn.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
     public static void close(Statement stmt) {
-        if (Objects.requireNonNull(stmt) != null) {
-            try {
-                stmt.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        Objects.requireNonNull(stmt);
+        try {
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
     public static void close(PreparedStatement pStmt) {
-        if (Objects.requireNonNull(pStmt) != null) {
-            try {
-                pStmt.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        Objects.requireNonNull(pStmt);
+
+        try {
+            pStmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+
     }
+
     public static void close(ResultSet rs) {
-        if (Objects.requireNonNull(rs) != null) {
-            try {
-                rs.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+        Objects.requireNonNull(rs);
+        try {
+            rs.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+
     }
 
 

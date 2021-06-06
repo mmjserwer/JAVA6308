@@ -39,7 +39,7 @@ public class BatchDemo6308 {
         Files.lines(Paths.get("data/StudentList.txt")).forEach(line -> {
             String[] datas = line.split(" ");
             try {
-                preSt.setString(1, datas[0].trim());
+                preSt.setString(1, datas[0]);
                 preSt.setString(2, datas[1]);
                 //添加到批处理中（批量传参）
                 preSt.addBatch();

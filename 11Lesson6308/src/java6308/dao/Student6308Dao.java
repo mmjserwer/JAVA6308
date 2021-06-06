@@ -11,113 +11,155 @@ import static java6308.dao.DBUtil6308.close;
 import static java6308.dao.DBUtil6308.getConnnection;
 
 public class Student6308Dao {
-    public static void main(String[] args) throws SQLException {
-        Student6308 stu=new Student6308("211906308","csj");
+    public static void main(String[] args) {
+        /*Student6308 stu = new Student6308("211906308", "csj");
         add6308(stu);
-        update6308(1,stu);
-        delete(3);
+        update6308(1, stu);
+        delete6308(3);
         findAll6308();
         findStudent6308("211906308");
         testAdd6308();
-        testFind6308();
+        testFind6308();*/
     }
 
-    private static Student6308 findStudent6308(String sno) throws SQLException {
+    public static Student6308 findStudent6308(String sno) {
         Student6308 stu = new Student6308();
-        Connection con = getConnnection();
-        String sql = "select * from xslist where sno=?";
+        Connection con = null;
         PreparedStatement pstm = null;
-        pstm = con.prepareStatement(sql);
-        pstm.setString(1, sno);
-        ResultSet rs=pstm.executeQuery();
-        if (pstm.executeUpdate() > 0) {
-            while(rs.next()){
+        ResultSet rs = null;
+        String sql = "select * from xslist where sno=?";
+        try {
+            con = getConnnection();
+            pstm = con.prepareStatement(sql);
+            pstm.setString(1, sno);
+            rs = pstm.executeQuery();
+            if (pstm.executeUpdate() > 0) {
+                while (rs.next()) {
+                    stu.setSno(rs.getString("sno"));
+                    stu.setLx2(rs.getInt("lx2"));
+                    stu.setSname(rs.getString("sname"));
+                    stu.setLx1(rs.getInt("lx1"));
+                    stu.setId(rs.getInt("id"));
+                }
+                return stu;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            close(rs);
+            close(pstm);
+            close(con);
+        }
+        return null;
+    }
+
+    public static List<Student6308> findAll6308() {
+        Connection con = null;
+        PreparedStatement sta = null;
+        ResultSet rs = null;
+        List<Student6308> list = null;
+        String sql = "select * from xslist";
+        try {
+            con = getConnnection();
+            sta = con.prepareStatement(sql);
+            rs = sta.executeQuery();
+            list = new ArrayList<>();
+            while (rs.next()) {
+                Student6308 stu = new Student6308();
                 stu.setSno(rs.getString("sno"));
                 stu.setLx2(rs.getInt("lx2"));
                 stu.setSname(rs.getString("sname"));
                 stu.setLx1(rs.getInt("lx1"));
                 stu.setId(rs.getInt("id"));
+                list.add(stu);
             }
-            return stu;
-        }
-        return null;
-    }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            if(rs!=null){
+                close(rs);
 
-    private static List<Student6308> findAll6308() throws SQLException {
-        Connection con = getConnnection();
-        String sql = "select * from xslist";
-        PreparedStatement sta = null;
-        sta = con.prepareStatement(sql);
-        ResultSet rs = sta.executeQuery();
-        List<Student6308> list = new ArrayList<>();
-        while (rs.next()) {
-            Student6308 stu = new Student6308();
-            stu.setSno(rs.getString("sno"));
-            stu.setLx2(rs.getInt("lx2"));
-            stu.setSname(rs.getString("sname"));
-            stu.setLx1(rs.getInt("lx1"));
-            stu.setId(rs.getInt("id"));
-            list.add(stu);
+            }
+            close(sta);
+            close(con);
         }
-        close(rs);
-        close(sta);
-        close(con);
         if (list.size() > 0)
             return list;
         return null;
     }
 
-    private static int delete(int id) throws SQLException {
-        Connection con = getConnnection();
-        String sql = "delete from xslist where id=?";
+    public static int delete6308(int id) {
+        Connection con = null;
         PreparedStatement pstm = null;
-        pstm = con.prepareStatement(sql);
-        pstm.setInt(1, id);
-
-        if (pstm.executeUpdate() > 0) {
+        String sql = "delete from xslist where id=?";
+        int i=-1;
+        try {
+            con = DBUtil6308.getConnnection();
+            pstm = con.prepareStatement(sql);
+            pstm.setInt(1, id);
+            i=pstm.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
             close(pstm);
             close(con);
-            return 1;
         }
-        close(pstm);
-        close(con);
-        return -1;
+        return i;
     }
 
-    private static int update6308(int id, Student6308 newStudent) throws SQLException {
-        Connection con = getConnnection();
+    public static int update6308(int id, Student6308 newStudent) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
         String sql = "update xslist set sno=?,sname=? ,lx1=? ,lx2=? where id=?";
-        PreparedStatement pstmt = null;
-        pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, newStudent.getSno());
-        pstmt.setString(2, newStudent.getSname());
-        pstmt.setInt(3, newStudent.getLx1());
-        pstmt.setInt(4, newStudent.getLx2());
-        pstmt.setInt(5, id);
-        close(pstmt);
-        close(con);
-        if (pstmt.executeUpdate() > 0)
-            return 1;
-        return -1;
-
-
+        int i=-1;
+        try {
+            con = getConnnection();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, newStudent.getSno());
+            pstmt.setString(2, newStudent.getSname());
+            pstmt.setInt(3, newStudent.getLx1());
+            pstmt.setInt(4, newStudent.getLx2());
+            pstmt.setInt(5, id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            close(pstmt);
+            close(con);
+        }
+        return i;
     }
 
-    private static int add6308(Student6308 student6308) throws SQLException {
-        Connection con = getConnnection();
-        String sql = "insert into xslist values(?,?)";
+    public static int add6308(Student6308 student6308) {
+        Connection con = null;
         PreparedStatement pstmt = null;
-        pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, student6308.getSno());
-        pstmt.setString(2, student6308.getSname());
-        close(pstmt);
-        close(con);
-        if (student6308 != null)
-            return student6308.getId();
-        return -1;
+        ResultSet rs=null;
+        String sql = "insert into xslist(sno,sname,lx1,lx2) values(?,?,?,?)";
+        int i=-1;
+        try {
+            con = getConnnection();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, student6308.getSno());
+            pstmt.setString(2, student6308.getSname());
+            pstmt.setInt(3,student6308.getLx1());
+            pstmt.setInt(4,student6308.getLx2());
+            if(pstmt.executeUpdate()==1){
+                rs = pstmt.executeQuery();
+                if(rs.next()){
+                    i=rs.getInt(1);
+                    student6308.setId(i);
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            close(rs);
+            close(pstmt);
+            close(con);
+        }
+        return i;
     }
 
-    private static void testFind6308() throws SQLException {
+    public static void testFind6308() {
         Student6308 student = new Student6308();
         student.setSno("add123");
         student.setSname("数据访问");
@@ -127,13 +169,9 @@ public class Student6308Dao {
         System.out.println("id+" + id);
     }
 
-    private static void testAdd6308() {
+    public static void testAdd6308() {
         List<Student6308> list = null;
-        try {
-            list = new Student6308Dao().findAll6308();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        list = new Student6308Dao().findAll6308();
         for (Student6308 student : list) {
             System.out.println(student);
         }

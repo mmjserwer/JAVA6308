@@ -7,7 +7,7 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="db6308.db3" uuid="b905b830-c4d8-444c-a72c-1eb8e93ce2de">
+    <data-source source="LOCAL" name="db6308.db3" uuid="e5218a33-48cd-4780-b424-98f06ca0ac7e">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
