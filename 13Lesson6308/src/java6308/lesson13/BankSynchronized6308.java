@@ -53,12 +53,12 @@ public class BankSynchronized6308 {
             synchronized (obj) {
                 b = account.getBalance() + money;
                 System.out.println(name + action + Math.abs(money));
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 account.setBalance(b);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
