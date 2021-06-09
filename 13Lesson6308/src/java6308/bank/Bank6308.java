@@ -1,6 +1,5 @@
 package java6308.bank;
 
-import java6308.lesson13.BankAccount6308;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,7 +22,7 @@ public class Bank6308 extends Application {
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("");
+        primaryStage.setTitle("多线程同步");
         primaryStage.show();
     }
 }
