@@ -1,11 +1,13 @@
 package java6308.lesson13;
 
 public class BankSynchronized6308 {
+    static Object obj = new Object();
     private static BankAccount6308 account;
     public BankSynchronized6308(BankAccount6308 account){
         this.account=account;
     }
     public static void main(String[] args) throws InterruptedException {
+
         account = new BankAccount6308("211906308", 1000.0);
         Thread t1 = new Thread(BankSynchronized6308::bank6308, "会计");
         Thread t2 = new Thread(BankSynchronized6308::bank6308, "出纳");
@@ -34,6 +36,7 @@ public class BankSynchronized6308 {
         }
 
         for(int i=1;i<4;i++){
+            synchronized (obj){}
                 b=account.getBalance()+money;
                 System.out.println(name+action+Math.abs(money));
                 try {
