@@ -37,8 +37,8 @@ public class BankSynchronized6308 {
             money = -100;
             action = "取出";
         }
-
-       /* for(int i=1;i<4;i++){
+/*
+        for(int i=1;i<4;i++){
                 b=account.getBalance()+money;
                 System.out.println(name+action+Math.abs(money));
                 try {
@@ -46,8 +46,8 @@ public class BankSynchronized6308 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-        }*/
-
+        }
+        account.setBalance(b);*/
 
         for (int i = 1; i < 4; i++) {
             synchronized (obj) {
@@ -58,9 +58,9 @@ public class BankSynchronized6308 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                account.setBalance(b);
             }
-        }
 
-        account.setBalance(b);
+        }
     }
 }
