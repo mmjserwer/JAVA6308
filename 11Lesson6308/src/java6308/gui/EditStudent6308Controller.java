@@ -92,9 +92,7 @@ public class EditStudent6308Controller {
         controller.initChange6308(oldStudent);
         dialog.showAndWait();
         Student6308 newStudent = controller.getStudent();
-        if (newStudent == null ) {
-
-        } else {
+        if (newStudent == null ) { } else {
             dao.update6308(oldStudent.getId(), newStudent);
             newStudent.setId(oldStudent.getId());
             int index = tvStudents.getSelectionModel().getSelectedIndex();
@@ -103,6 +101,12 @@ public class EditStudent6308Controller {
             tvStudents.getSelectionModel().select(newStudent);
             tvStudents.requestFocus();
 
+        }
+    }
+    @FXML
+    void doubleClick(MouseEvent event) {
+        if (event.getClickCount() == 2 && event.getButton() == MouseButton.PRIMARY) {
+            change(null);
         }
     }
 
@@ -131,13 +135,6 @@ public class EditStudent6308Controller {
                 }
             }
         });
-    }
-
-    @FXML
-    void doubleClick(MouseEvent event) {
-        if (event.getClickCount() == 2 && event.getButton() == MouseButton.PRIMARY) {
-            change(null);
-        }
     }
 
     private Student6308 getCurrentStudent() {

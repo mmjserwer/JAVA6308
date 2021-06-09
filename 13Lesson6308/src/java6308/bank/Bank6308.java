@@ -1,4 +1,4 @@
-package java6304.gui;
+package java6308.bank;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class EditStudent6304 extends Application {
+public class Bank6308 extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -17,17 +17,11 @@ public class EditStudent6304 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL url= getClass().getResource("EditStudent6304View.fxml");
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = null;
-        try {
-            root=loader.load();
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene=new Scene(root);
+        URL url = getClass().getResource("Bank6308View.fxml");
+        Parent root = FXMLLoader.load(url);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("维护学生表");
+        primaryStage.setTitle("");
         primaryStage.show();
     }
 }

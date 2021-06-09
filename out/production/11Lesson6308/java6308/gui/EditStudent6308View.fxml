@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java6304.gui.EditStudent6304Controller">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java6308.gui.EditStudent6308Controller">
 
     <bottom>
-        <Label text="by 211906304陈家凯" BorderPane.alignment="CENTER" />
+        <Label text="by 211906308：陈思杰" BorderPane.alignment="CENTER" />
     </bottom>
     <center>
         <TableView fx:id="tvStudents" onMouseClicked="#doubleClick" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
