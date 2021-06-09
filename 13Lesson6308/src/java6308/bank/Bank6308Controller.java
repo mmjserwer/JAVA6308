@@ -6,6 +6,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.lang.reflect.Array;
+import java.util.stream.Stream;
+
 public class Bank6308Controller {
     static Object obj = new Object();
     private static BankAccount6308 account;
@@ -36,6 +39,8 @@ public class Bank6308Controller {
     @FXML
     void start6308(ActionEvent event) {
         account = new BankAccount6308(tfBankID.getText(), Double.valueOf(tfBalance0.getText()));
+        String s = taMoney.getText();
+        String[] split = s.split("\n");
 
     }
 
