@@ -48,7 +48,11 @@ public class Bank6308Controller {
         for (int i = 1; i <= listMoney.size(); i++) {
             Thread thread = new Thread(this::bank6308, "线程" + i);
             thread.start();
-
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         String t="";
         for(int i=0;i<list.size();i++){
@@ -73,7 +77,7 @@ public class Bank6308Controller {
     }
 
     private void bank6308() {
-        synchronized (this){
+        synchronized (obj){
             String name = Thread.currentThread().getName();
             String action = "";
             double money = 0, b = 0;
@@ -100,7 +104,6 @@ public class Bank6308Controller {
                 list.add(name + ":" + action + Math.abs(money));
                 account.setBalance(b);
             }
-
         }
 
 
