@@ -48,11 +48,7 @@ public class Bank6308Controller {
         for (int i = 1; i <= listMoney.size(); i++) {
             Thread thread = new Thread(this::bank6308, "线程" + i);
             thread.start();
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
         String t="";
         for(int i=0;i<list.size();i++){
@@ -77,32 +73,36 @@ public class Bank6308Controller {
     }
 
     private void bank6308() {
-        String name = Thread.currentThread().getName();
-        String action = "";
-        double money = 0, b = 0;
-        int a=0;
-        String[] s = name.split("线程");
-        a=Integer.parseInt(s[1]);
-        a=a-1;
-        for(int i=0;i<listMoney.size();i++){
-            if(a==i){
-                money=listMoney.get(i);
+        synchronized (this){
+            String name = Thread.currentThread().getName();
+            String action = "";
+            double money = 0, b = 0;
+            int a=0;
+            String[] s = name.split("线程");
+            a=Integer.parseInt(s[1]);
+            a=a-1;
+            for(int i=0;i<listMoney.size();i++){
+                if(a==i){
+                    money=listMoney.get(i);
+                }
             }
+            if (money >= 0) {
+                action = "存款";
+            } else {
+                action="取款";
+            }
+            b = account.getBalance() + money;
+            if(b<0){
+                System.out.println(name + ":" + action + Math.abs(money)+"失败，余额不足("+account.getBalance()+")");
+                list.add(name + ":" + action + Math.abs(money)+"失败，余额不足("+account.getBalance()+")");
+            }else {
+                System.out.println(name + ":" + action + Math.abs(money));
+                list.add(name + ":" + action + Math.abs(money));
+                account.setBalance(b);
+            }
+
         }
-        if (money >= 0) {
-            action = "存款";
-        } else {
-            action="取款";
-        }
-        b = account.getBalance() + money;
-        if(b<0){
-            System.out.println(name + ":" + action + Math.abs(money)+"失败，余额不足("+account.getBalance()+")");
-            list.add(name + ":" + action + Math.abs(money)+"失败，余额不足("+account.getBalance()+")");
-        }else {
-            System.out.println(name + ":" + action + Math.abs(money));
-            list.add(name + ":" + action + Math.abs(money));
-            account.setBalance(b);
-        }
+
 
     }
 
