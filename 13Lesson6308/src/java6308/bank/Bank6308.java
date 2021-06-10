@@ -19,7 +19,9 @@ public class Bank6308 extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         URL url = getClass().getResource("Bank6308View.fxml");
-        Parent root = FXMLLoader.load(url);
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root=null;
+        root = loader.load(url);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("多线程同步");
