@@ -5,9 +5,9 @@ public class TicketRunnable6308 implements Runnable {
 
     @Override
     public void run() {
-        while (tickets < 11) {
+        while (tickets < 9) {
             synchronized (this) {
-                System.out.println(Thread.currentThread().getName() + "---" + tickets++);
+                System.out.println(Thread.currentThread().getName() + "---第" + (tickets++)+"张");
             }
         }
     }
