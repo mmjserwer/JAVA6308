@@ -24,6 +24,10 @@ public class DrinkWater6308 {
             }
             System.out.println(name + ",请加水！");
         }
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
