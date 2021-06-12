@@ -42,6 +42,8 @@ public class Bank6308Controller {
 
     @FXML
     void start6308(ActionEvent event) {
+        list.clear();
+        listMoney.clear();
         if(isNumber(tfBankID.getText())){
             int i = Integer.parseInt(tfBankID.getText());
             if(i>0){
