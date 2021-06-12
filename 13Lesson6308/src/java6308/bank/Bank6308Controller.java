@@ -2,6 +2,7 @@ package java6308.bank;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -41,9 +42,30 @@ public class Bank6308Controller {
 
     @FXML
     void start6308(ActionEvent event) {
+        if(isNumber(tfBankID.getText())){
+            int i = Integer.parseInt(tfBankID.getText());
+            if(i>0){
 
+            }else{
+                attion("银行id错误");
+                return;
+            }
+        }else {
+            attion("银行id错误");
+            return;
+        }
+        if(isNumber(tfBalance0.getText())){
+            int i = Integer.parseInt(tfBalance0.getText());
+            if(i<0){
+                    attion("初始余额错误");
+                    return;
+            }
+        }else {
+            attion("初始余额错误");
+            return;
+        }
 
-        account = new BankAccount6308(tfBankID.getText(), Double.parseDouble(tfBalance0.getText()));
+        account = new BankAccount6308(tfBankID.getText(), Integer.parseInt(tfBalance0.getText()));
         listMoney = getMoney(taMoney.getText());
         for (int i = 1; i <= listMoney.size(); i++) {
             Thread thread = new Thread(this::bank6308, "线程" + i);
@@ -80,7 +102,7 @@ public class Bank6308Controller {
         synchronized (obj){
             String name = Thread.currentThread().getName();
             String action = "";
-            double money = 0, b = 0;
+            int money = 0, b = 0;
             int a=0;
             String[] s = name.split("线程");
             a=Integer.parseInt(s[1]);
@@ -105,8 +127,6 @@ public class Bank6308Controller {
                 account.setBalance(b);
             }
         }
-
-
     }
 
     //判断是否为负数 或者正数
@@ -117,6 +137,13 @@ public class Bank6308Controller {
             return false;
         }
         return true;
+    }
+    void attion(String s) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("多线程同步");
+        alert.setHeaderText("请注意");
+        alert.setContentText(s);
+        alert.show();
     }
 
 }

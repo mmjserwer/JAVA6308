@@ -2,9 +2,9 @@ package java6308.bank;
 
 public class BankAccount6308 {
     private String bankID;
-    private Double balance;
+    private int balance;
 
-    public BankAccount6308(String bankID, Double balance) {
+    public BankAccount6308(String bankID, int balance) {
         this.bankID = bankID;
         this.balance = balance;
     }
@@ -17,11 +17,11 @@ public class BankAccount6308 {
         this.bankID = bankID;
     }
 
-    public Double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 }
