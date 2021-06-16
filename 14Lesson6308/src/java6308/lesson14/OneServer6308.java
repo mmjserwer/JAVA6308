@@ -31,8 +31,8 @@ public class OneServer6308 {
             String s1 = sc.nextLine();
             ps.println(s1);
             ps.flush();
-
         }
+        System.out.println("结束:"+client);
         ps.close();
         scan.close();
         s.close();

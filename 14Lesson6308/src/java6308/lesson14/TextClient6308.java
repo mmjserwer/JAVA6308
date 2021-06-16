@@ -11,7 +11,7 @@ public class TextClient6308 {
         Socket s = new Socket("127.0.0.1", 10000);
         Scanner scan = new Scanner(s.getInputStream());
         PrintStream ps = new PrintStream(s.getOutputStream());
-        while (scan.hasNext()) {
+        while (true) {
             if (scan.next().equals("stop")) {
                 break;
             } else {
