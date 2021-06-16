@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class BaseClient6308 {
     public static void main(String[] args) throws IOException {
         System.out.println("客户拨号......");
-        Socket socket = new Socket("127.0.0.1",10000);
+        Socket socket = new Socket("172.19.15.40",18888);
         PrintStream ps = new PrintStream(socket.getOutputStream());
         ps.println("空调不制冷");
         Scanner scan = new Scanner(socket.getInputStream());

@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class BaseServer6308 {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner input = new Scanner(System.in);
-        ServerSocket ss = new ServerSocket(10000);
+        ServerSocket ss = new ServerSocket(18889);
         System.out.println("等待客户电话.....");
         Socket s = ss.accept();
         System.out.println("客户端："+s.getPort());

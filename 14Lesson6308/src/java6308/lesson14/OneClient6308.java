@@ -23,15 +23,13 @@ public class OneClient6308 {
         PrintStream ps = new PrintStream(socket.getOutputStream());
         System.out.println("连接:"+ip+":"+port);
         String answer=null;
-        while(true){
-            answer=scan.nextLine().trim();
-            if(answer.equals("再见")){
-                System.out.println(port+":"+answer);
-                break;
-            }
+        answer=scan.nextLine().trim();
+        System.out.println(port+":"+answer);
+        while(!answer.equals("再见")){
             System.out.print("请输入问题：");
             String s = sc.nextLine();
             ps.println(s);
+            answer=scan.nextLine();
             System.out.println(port+":"+answer);
         }
         ps.close();

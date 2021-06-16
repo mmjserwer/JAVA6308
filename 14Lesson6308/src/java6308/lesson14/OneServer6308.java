@@ -11,13 +11,13 @@ public class OneServer6308 {
         Scanner sc = new Scanner(System.in);
         System.out.println("18888服务平台");
         int i = 1;
-        ServerSocket ss = new ServerSocket(18888);
-
+        ServerSocket ss = new ServerSocket(18889);
         Socket s = ss.accept();//
         String client = s.getInetAddress().getHostAddress() + ":" + s.getPort() + ",已接入";
         System.out.println(client);
         Scanner scan = new Scanner(s.getInputStream());
         PrintStream ps = new PrintStream(s.getOutputStream());
+        ps.println("欢迎致电深夜有声音，我是主持人陈思杰，很高兴为你服务");
         String prolbem = null;
         while (true) {
             prolbem = scan.next().trim();
@@ -32,7 +32,6 @@ public class OneServer6308 {
             ps.println(s1);
             ps.flush();
         }
-        System.out.println("结束:"+client);
         ps.close();
         scan.close();
         s.close();
