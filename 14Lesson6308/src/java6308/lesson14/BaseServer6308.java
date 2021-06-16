@@ -18,6 +18,7 @@ public class BaseServer6308 {
         PrintStream ps = new PrintStream(s.getOutputStream());
         System.out.println("接听电话...."+scan.nextLine());
         Thread.sleep(1000);
+
         System.out.println("请按“工号：XXXXXXXX”的格式向客户端发送信息，其中XXXXXXXX用自己的学号和姓名替换");
         String s2 = input.nextLine();
         ps.println("很高兴为您服务.......工号：211906308陈思杰"+s2);

@@ -17,11 +17,12 @@ public class Message6308 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
         URL url = getClass().getResource("Message6308View.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("");
+        primaryStage.setTitle("已连接");
         primaryStage.show();
     }
 }
